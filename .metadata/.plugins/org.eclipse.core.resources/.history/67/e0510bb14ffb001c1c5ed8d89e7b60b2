@@ -1,0 +1,32 @@
+package TestingFrameWork.ExtentReports;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtentReportDemo {
+
+	@BeforeTest
+	public void config()
+	{
+		//ExtentReports & ExtentSparkreporter classes are needed
+		//user.dir will get the project path till the project name(ExtentReports)
+		String path=System.getProperty("user.dir")+"\\Reports\Index.html";
+		ExtentSparkReporter reporter= new ExtentSparkReporter(path);
+		
+	}
+	
+	@Test
+	public void InitialDemo()
+	{
+	System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://rahulshettyacademy.com");
+	System.out.println(driver.getTitle());
+	
+	
+		
+	}
+}
